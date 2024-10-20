@@ -1,0 +1,24 @@
+Technique,Features,Advantages,Disadvantages,Use case,Principle of Work
+CountVectorizer,"Simple token counts, creates a Bag-of-Words representation",Simple and efficient for small datasets,Doesn't capture word importance or relationships,Best for small datasets or when you need simple frequency counts of words. Example: Spam detection with basic word count analysis.,"1. Tokenization: Splits text into words. 
+2. Vocabulary creation: Builds a vocabulary of unique words. 
+3. Count representation: Represents each document as a vector of word counts."
+TfidfVectorizer,"Transforms text into TF-IDF matrix, considers word importance","Reduces importance of common words, better for frequent-infrequent word imbalance","Ignores word context, no semantic information","Ideal for text classification tasks where common words need to be down-weighted. Example: News categorization where frequent words like 'the', 'is' are less informative.","1. Tokenization: Splits text into words. 
+2. Vocabulary creation: Builds a vocabulary. 
+3. Calculate TF: Term frequency for each word in a document. 
+4. Calculate IDF: Inverse document frequency across documents. 
+5. TF-IDF representation: Multiply TF by IDF for each word."
+HashingVectorizer,"Uses hashing trick to map terms to indices, fixed-size vectors","Memory-efficient for large datasets, no need to store vocabulary","Cannot reverse mapping, no interpretability",Efficient for extremely large datasets or real-time systems. Example: Large-scale text search systems where memory is a concern.,"1. Tokenization: Splits text into words. 
+2. Hashing: Uses a hash function to map each word to a fixed vector space. 
+3. Count representation: Words mapped to hashed vector space are counted."
+Word2Vec,"Embeds words into dense vectors, captures semantic meaning","Captures semantic meaning, useful for context-based tasks","Requires training, more complex to use","Useful for tasks that need semantic similarity between words. Example: Sentiment analysis where similar words ('good', 'great') should have close representations.","1. Tokenization: Splits text into words. 
+2. Training: Learns dense vector representation of words based on word co-occurrence in the text. 
+3. Embedding: Represents each word as a vector capturing its meaning."
+Doc2Vec,"Embeds entire documents or sentences into dense vectors, capturing context","Captures document-level semantics, useful for tasks requiring sentence or paragraph-level understanding","Requires training, complex to use for small datasets",Best for tasks where you need sentence or document-level embeddings. Example: Document classification or summarization tasks.,"1. Tokenization: Splits text into words. 
+2. Training: Learns dense vector representation of entire documents based on word context. 
+3. Embedding: Represents entire documents as vectors, capturing semantics."
+GloVe,"Similar to Word2Vec, pretrained on co-occurrence statistics",Captures global co-occurrence statistics for better word representation,"Requires large corpus for training, more complex","Good for transfer learning tasks, pretrained on large corpora. Example: Named entity recognition (NER) using pretrained word embeddings.","1. Co-occurrence matrix: Builds a matrix of word co-occurrence statistics. 
+2. Factorization: Decomposes the matrix to derive dense word vectors. 
+3. Embedding: Represents words as dense vectors based on global statistics."
+BERT/GPT,Context-aware embeddings using deep learning,"Captures meaning based on word context, highly accurate for complex tasks","Computationally expensive, requires large datasets and GPUs",Best for advanced NLP tasks like question answering and sentiment analysis. Example: Sentiment analysis using BERT for highly contextual understanding of text.,"1. Tokenization: Splits text into tokens (words). 
+2. Embedding: Creates context-aware embeddings for each word. 
+3. Transformer-based architecture: Uses self-attention mechanism to understand word context in sentences."
